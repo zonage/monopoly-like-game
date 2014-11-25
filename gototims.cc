@@ -2,10 +2,10 @@
 
 GoToTims::action()
 {
-	occupying->position = theBoard.squareArr[10];
+	takenby->
 }
 
 GoToTims::~GoToTims()
 {
-	delete occupying;
+	delete takenby;
 }
