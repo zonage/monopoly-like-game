@@ -1,6 +1,4 @@
 #include "nonproperty.h"
 
 // destructor
-NonProperty::~NonProperty() 
-{
-}
+NonProperty::~NonProperty() {}
