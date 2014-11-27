@@ -27,7 +27,7 @@
 using namespace std;
 
 square * board[40];
-Player * players[4];
+Player * players[6];
 
 int main() {
 //	srand(time(NULL));
@@ -78,7 +78,7 @@ int main() {
 	squareArr[39] = new CoopFee();
 	squareArr[40] = new AcademicBuilding("DC", 400, "Math", 50, 200);
 	
-	cout << "How many players? (1-4)" << endl;
+	cout << "How many players? (1-6)" << endl;
 	cin >> numplayers;
 
 	// only makes players if there is at least 2
@@ -94,10 +94,32 @@ int main() {
 		for(int i = 0; i < players; ++i)
 		{
 			string name;
-			cout << "What is your name?" << endl;
-			cin >> name;
-			Player * p1 = new Player(name);
-			players[i] = p1;
+			string controlType;
+			cout << "Player details (name human/computer) ex: adam human" << endl;
+
+			cin >> name >> controlType;
+			while((controlType != human) && (controlType != computer))
+			{
+				cout << "Please enter human/computer" << endl;
+				cin >> controlType;
+			}
+
+			if (controlType == "computer") {
+				players[i] = new Computer(name);
+			} else {
+				char piece;
+				cout << "Pick character Piece: G, B, D, S, $, L, T" << endl;
+				cin >> piece;
+
+				while ((piece!=G)&&(piece!=B)&&(piece!=D)&&(piece!=S)
+					&&(piece!=$)&&(piece!=L)&&(piece!=T)) {
+					cout << "Please enter a valid character: G, B, D, S, $, L, T" << endl;
+					cin >> piece;
+// do we need to check for char vs string input
+				}
+				players[i] = new Human(name, piece);
+			}
+
 		}
 
 		// checking if we can do it this way <>
@@ -111,22 +133,7 @@ int main() {
 	while(bankrupts != (numplayers - 1))
 	{
 		Player &currentplayer = *(players[currentturn]);
-		string answer;
-		cout << "Do you want to trade? Answer: (y/n)" endl;
-		cin >> answer;
-		if (answer == "y")
-		{
-			// trade function
-		}
-		cout << "Do you want to mortgage? Answer: (y/n)" << endl;
-		cin >> answer;
-		if (answer == "y")
-		{
-			// mortgage function
-		}
-		cout << "Rolling dice!" << endl;
-		currentplayer.roll();
-
+		currentplayer.turn();
 	}
 
 }

@@ -1,12 +1,6 @@
 #include "player.h"
 using namespace std;
 
-// constructor
-Player::Player(string name, Square *position, int money, int timCards/*, map assets */):
-	name(name), money(money=1500), timCards(timcards=0) {
-		map<string pname, Property *p> assets;
-	}
-
 // destructor
 Player::~Player() {}
 

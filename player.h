@@ -2,11 +2,12 @@
 #define __PLAYER_H__
 #include <string>
 #include <map>
-class Sqaure;
+class Square;
 
 class Player {
 	public:
 	std::string name;
+	char charPiece;
 	Square* position;
 	int loc;
 	int money;
@@ -14,6 +15,7 @@ class Player {
 	int timturns = 3;
 	std::map assets;
 
+	virtual void turn()=0;
 	void addMoney(int);
 	void mortgage();
 	void bankrupt();
