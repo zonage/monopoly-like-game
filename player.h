@@ -8,8 +8,10 @@ class Player {
 	public:
 	std::string name;
 	Square* position;
+	int loc;
 	int money;
 	int timCards;
+	int timturns = 3;
 	std::map assets;
 
 	void addMoney(int);
