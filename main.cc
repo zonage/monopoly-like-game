@@ -1,4 +1,4 @@
-#include <cstdlib>
+/*#include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <string>
@@ -18,6 +18,11 @@
 #include "square.h"
 #include "timsline.h"
 #include "tuition.h"
+*/
+
+#include <iostream>
+#include "player.h"
+#include <string>
 
 using namespace std;
 
@@ -25,7 +30,7 @@ square * board[40];
 Player * players[4];
 
 int main() {
-	srand(time(NULL));
+//	srand(time(NULL));
 	int num;
 	cout << "How many players? (1-4)" << endl;
 	cin >> num;

@@ -6,9 +6,6 @@ collectOSAP::action()
 	occupying->money += 200;
 }
 
-// constructor
-collectOSAP::collectOSAP() : ( )
-
 // destructor
 collectOSAP::~collectosap()
 {

@@ -10,7 +10,6 @@ public:
 	player * occupying;
 	int cardsinplay;
 	virtual void action();
-	TimsLine();
 	~TimsLine();
 };
 

@@ -10,7 +10,6 @@ class collectOSAP: public non-property
 public:
 	player * occupying;
 	virtual void action();
-	collectOSAP();
 	~collectOSAP();
 };
 

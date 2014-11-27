@@ -6,11 +6,11 @@ class Sqaure;
 
 class Player {
 	public:
-	string name;
+	std::string name;
 	Square* position;
 	int money;
 	int timCards;
-	map assets;
+	std::map assets;
 
 	void virtual turn() =0;
 	void addMoney(int);
