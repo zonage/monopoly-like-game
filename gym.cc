@@ -3,12 +3,12 @@
 using namespace std;
 
 Gym::Gym(string title, int cost, bool purchased=0, bool mortgaged=0,
- 		Player *owner=NULL, Player *occupying=NULL, string mBlockName, int rent):
-		title(title), cost(cost), mBlockName(mBlockName), rent(rent) {}
+ 		Player *owner=NULL, Player *occupying=NULL, string mBlockName):
+		title(title), cost(cost), mBlockName(mBlockName) {}
 
 Gym::~Gym() {}
 
-Gym::collectRent() {
+Gym::action() {
 	int die1 = rand() % 6 + 1;
 	int die2 = rand() % 6 + 1;
 	

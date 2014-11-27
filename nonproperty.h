@@ -2,7 +2,7 @@
 #define __NONPROPERTY_H__
 #include "square.h"
 
-class NonProperty: public square
+class NonProperty: public Square
 {
 public:
 	virtual void action() = 0;

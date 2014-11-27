@@ -20,7 +20,7 @@ AcademicBuilding::improve() {
 	}
 }
 
-AcademicBuilding::collectRent() {
+AcademicBuilding::action() {
 	int count = owner->assets[mBlockName]->numP;
 	int amount = rent * pow(2, count);
 	occupying->addMoney(-amount);

@@ -3,8 +3,11 @@
 
 class Square {
 	protected:
-	void Square();
-	void ~Square();
+	int number;
+	
+	Square();
+	~Square();
+	virtual void action()=0;
 };
 
 #endif

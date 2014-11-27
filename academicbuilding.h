@@ -1,8 +1,9 @@
 #ifndef __ACADEMICBUILDING_H__
 #define __ACADEMICBUILDING_H__
+#include "property.h"
 #include <string>
 
-class AcademicBuilding {
+class AcademicBuilding: public Property{
 public:
 	string mBlockName;
 	int rent;
@@ -13,7 +14,7 @@ public:
  		Player *owner, Player *occupying, int rent, int improvements, int imprvCost);
 	~AcademicBuilding();
 	void improve();
-	void collectRent();
+	virtual void action();
 };
 
 #endif

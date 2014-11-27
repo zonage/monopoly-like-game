@@ -1,8 +1,9 @@
 #ifndef __RES_H__
 #define __RES_H__
+#include "property.h"
 #include <string>
 
-class Res {
+class Res: public Property {
 public:
 	string mBlockName;
 	int rent;
@@ -10,7 +11,7 @@ public:
 	Res(string title, int cost, bool purchased, bool mortgaged,
  		Player *owner, Player *occupying, string mBlockName, int rent);
 	~Res();
-	void collectRent();
+	virtual void action();
 };
 
 #endif
