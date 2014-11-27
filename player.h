@@ -12,10 +12,10 @@ class Player {
 	int timCards;
 	std::map assets;
 
-	void virtual turn() =0;
 	void addMoney(int);
 	void mortgage();
 	void bankrupt();
+	void roll();
 	Player();
 	~Player();
 };

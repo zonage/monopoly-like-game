@@ -31,21 +31,57 @@ Player * players[4];
 
 int main() {
 //	srand(time(NULL));
-	int num;
+	int numplayers;
+	int bankrupts = 0;
 	cout << "How many players? (1-4)" << endl;
-	cin >> num;
-	for(int i = 0; i < players; ++i)
+	cin >> numplayers;
+
+	// only makes players if there is at least 2
+	if (numplayers < 2)
 	{
-		string name;
-		cout << "What is your name?" << endl;
-		cin >> name;
-		Player * p1 = new Player(name);
-		players[i] = p1;
+		cout << "Error, not enough players. Exiting.." << endl;
+		return;
 	}
-	for(int i = 0; i < num; i++)
+	else
 	{
-		cout << players[i]->name; << endl;
+
+		// makes players and sets them into array: players
+		for(int i = 0; i < players; ++i)
+		{
+			string name;
+			cout << "What is your name?" << endl;
+			cin >> name;
+			Player * p1 = new Player(name);
+			players[i] = p1;
+		}
+
+		// checking if we can do it this way <>
+		for(int i = 0; i < num; i++)
+		{
+			cout << players[i]->name; << endl;
+		}
 	}
-	for (int i =)
+
+	int currentturn = 0;
+	while(bankrupts != (numplayers - 1))
+	{
+		Player &currentplayer = *(players[currentturn]);
+		string answer;
+		cout << "Do you want to trade? Answer: (y/n)" endl;
+		cin >> answer;
+		if (answer == "y")
+		{
+			// trade function
+		}
+		cout << "Do you want to mortgage? Answer: (y/n)" << endl;
+		cin >> answer;
+		if (answer == "y")
+		{
+			// mortgage function
+		}
+		cout << "Rolling dice!" << endl;
+		currentplayer.roll();
+
+	}
 
 }

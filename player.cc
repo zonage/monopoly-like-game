@@ -60,3 +60,13 @@ void Player::addMoney(int amount) {
 		this.bankrupt();
 	}
 }
+
+// roll: rolls the dice
+void Player::roll()
+{
+	int die1 = rand() % 6 + 1;
+	int die2 = rand() % 6 + 1;
+	int sum = die1 + die2;
+	loc += sum;
+	position = theBoard.squareArr[loc];
+}
