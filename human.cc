@@ -1,8 +1,11 @@
+#include <iostream>
+#include <string>
 #include "human.h"
 
+
 / constructor
-Human::Human(string name, char charPiece, Square *position, int money, int timCards/*, map assets */):
-	name(name), money(money=1500), timCards(timcards=0) {
+Human::Human(string name, char charPiece, Square *position, int money, int RimCups/*, map assets */):
+	name(name), money(money=1500), RimCups(RimCups=0) {
 		map<string pname, Property *p> assets;
 	}
 
@@ -10,19 +13,134 @@ Human::~Human() {}
 
 Human::turn() {
 
-		string answer;
-		cout << "Do you want to trade? Answer: (y/n)" endl;
+	string answer;
+	cout << "Do you want to trade? Answer: (y/n)" endl;
+	cin >> answer;
+
+	while((answer != "y") && (answer != "n"))
+	{
 		cin >> answer;
+	}
+
+	if (answer == "y")
+	{
+		// trade function
+	}
+
+	cout << "Do you want to mortgage? Answer: (y/n)" << endl;
+	cin >> answer;
+
+	while((answer != "y") && (answer != "n"))
+	{
+		cin >> answer;
+	}
+
+	if (answer == "y")
+	{
+		// mortgage function
+	}
+
+	// checks whether or not in DC Tim's Line
+	while (TimTurns < 3)
+	{
+		cout << "You have been in the Tim's Line for " << TimTurns << " turns." << endl;
+		
+		// gives the option to use Rim cup if available
+		if (RimCups > 0)
+		{
+			cout << "Rim cups: " << RimCups << endl;
+			cout << "Would you like use a Roll Up the Rim cup? Answer: (y/n)" << endl;
+			cin >> answer;
+
+			while((answer != "y") && (answer != "n"))
+			{
+				cin >> answer;
+			}
+
+			if (answer == "y")
+			{
+				cout << "You have used a Roll Up the Rim cup." << endl;
+				cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+				--RimCups;
+				TimTurns == 3;
+				cout << "Rim cups: " << RimCups << endl;
+				break;
+			}
+		}
+
+		// gives option to pay
+		cout << "Do you want to pay $50? Answer: (y/n)" << endl;
+		cin >> answer;
+
+		while((answer != "y") && (answer != "n"))
+		{
+			cin >> answer;
+		}
+
+		// pays $50 to get out of Tim's Line
 		if (answer == "y")
 		{
-			// trade function
+			cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+			money -= 50;
+			TimTurns = 3;
+			break;
 		}
-		cout << "Do you want to mortgage? Answer: (y/n)" << endl;
-		cin >> answer;
-		if (answer == "y")
+		else
 		{
-			// mortgage function
+			cout << "Rolling dice!" << endl;
+			roll();
+
+			// Must pay $50 condition
+			if (TimTurns == 2)
+			{
+				cout "Must... get out... of Tim's Line.." << endl;
+				cout "Paid $50" << endl;
+				mone -=50;
+				TimTurns = 3;
+				cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+				break;
+			}	
+			else if (TimTurns != 3)
+			{
+				++TimTurns;
+				cout << "End of turn." << endl;
+				break;
+			}
+			else
+			{
+				break;
+			}
 		}
-		cout << "Rolling dice!" << endl;
-		currentplayer.roll();
+	}
+
+	cout << "Rolling dice!" << endl;
+	roll();
+	position->action();
+	
+	cout << "Do you want to trade? Answer: (y/n)" endl;
+	cin >> answer;
+
+	while((answer != "y") && (answer != "n"))
+	{
+		cin >> answer;
+	}
+
+	if (answer == "y")
+	{
+		// trade function
+	}
+
+	cout << "Do you want to mortgage? Answer: (y/n)" << endl;
+	cin >> answer;
+
+	while((answer != "y") && (answer != "n"))
+	{
+		cin >> answer;
+	}
+
+	if (answer == "y")
+	{
+		// mortgage function
+	}
+	cout << "End of turn." endl;
 }

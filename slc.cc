@@ -8,12 +8,12 @@ SLC::action()
 	int todo = rand() % 100 + 1;
 
 	// checks whether to give out timCard or normal behaviour
-	if ((todo == 57) && (timmies->cardsinplay < 5))
+	if ((todo == 57) && (timmies->cupsinplay < 5))
 	{
 
 		// gives player a timCard and increments the number of cards in play
-		occupying->timCards++;
-		timmies->cardsinplay++;
+		occupying->RimCups++;
+		timmies->cupsinplay++;
 	}
 	else
 	{

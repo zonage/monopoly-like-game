@@ -8,7 +8,7 @@ class TimsLine: public non-property
 {
 public:
 	player * occupying;
-	int cardsinplay;
+	int cupsinplay;
 	virtual void action();
 	~TimsLine();
 };

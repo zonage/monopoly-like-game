@@ -2,7 +2,7 @@
 #define __PLAYER_H__
 #include <string>
 #include <map>
-class Square;
+#include "square.h"
 
 class Player {
 	public:
@@ -11,8 +11,8 @@ class Player {
 	Square* position;
 	int loc;
 	int money;
-	int timCards;
-	int timturns = 3;
+	int RimCups;
+	int TimTurns = 3;
 	std::map assets;
 
 	virtual void turn()=0;
