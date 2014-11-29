@@ -2,7 +2,7 @@
 #define __SQUARE_H__
 
 class Square {
-	protected:
+public:
 	int number;
 	
 	Square();

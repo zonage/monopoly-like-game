@@ -5,7 +5,7 @@
 
 / constructor
 Human::Human(string name, char charPiece, Square *position, int money, int RimCups/*, map assets */):
-	name(name), money(money=1500), RimCups(RimCups=0) {
+	name(name), money(money=1500), RimCups(RimCups=0), TimTurns(TimTurns=3) {
 		map<string pname, Property *p> assets;
 	}
 

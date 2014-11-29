@@ -11,7 +11,7 @@ AcademicBuilding::AcademicBuilding(string title, int cost, bool purchased=false,
 
 AcademicBuilding::~AcademicBuilding() {}
 
-AcademicBuilding::improve() {
+void AcademicBuilding::improve() {
 	if (improvements<5) {
 		improvements += 1;
 		owner->addMoney(-imprvCost);

@@ -12,7 +12,7 @@ class Player {
 	int loc;
 	int money;
 	int RimCups;
-	int TimTurns = 3;
+	int TimTurns;
 	std::map assets;
 
 	virtual void turn()=0;

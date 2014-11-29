@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cstdlib>
 #include "player.h"
+#include "theboard.h"
 using namespace std;
 
 // destructor
 Player::~Player() {}
-
+/*
 // mortchek: mortgage checker helper function
 bool mortchek(Property* assets[num]) {
 	int i = 0;
@@ -54,16 +56,16 @@ void Player::addMoney(int amount) {
 	if (!mortchek(assets) && (money<0)) {
 		this.bankrupt();
 	}
-}
+}*/
 
 // roll: rolls the dice and changes the position of the player.
 void Player::roll()
 {
-	int doubles == 0;
+	int doubles = 0;
 	int die1 = 0;
 	int die2 = 0;
 	int sum;
-	string behaviour = "normal"
+	string behaviour = "normal";
 
 	// keeps rolling until unique digits rolled, sends player to the DC Tim's Line, or let's them out
 	while (die1 == die2)
@@ -76,8 +78,8 @@ void Player::roll()
 			if (doubles == 3)
 			{
 				behaviour = "special";
-				cout << "Oh no, you rolled 3 doubles!" endl;
-				cout "You've been sent to the DC Tim's Line!" << endl;
+				cout << "Oh no, you rolled 3 doubles!" << endl;
+				cout << "You've been sent to the DC Tim's Line!" << endl;
 				TimTurns = 0;
 				loc = 10;
 				position = theBoard.squareArr[10];
@@ -89,8 +91,8 @@ void Player::roll()
 			cout << "Rolling again:" << endl;
 		}
 
-		int die1 = rand() % 6 + 1;
-		int die1 = rand() % 6 + 1;
+		die1 = rand() % 6 + 1;
+		die2 = rand() % 6 + 1;
 		cout << "Your roll, die 1: " << die1 << " die 2: " << die2 << endl;
 
 		// if player is in the Tim's Line, checks whether or not the rolled a double in their first roll
@@ -99,13 +101,13 @@ void Player::roll()
 			behaviour = "special";
 			if (die1 == die2)
 			{					
-				cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+				cout << "Congratulations, you've cleared the DC Tim's Line!" << endl;
 				TimTurns = 3;
 				break;
 			}	
 			else
 			{
-				cout << "Sorry, you did not roll doubles." endl;
+				cout << "Sorry, you did not roll doubles." << endl;
 				break;
 			}
 		}

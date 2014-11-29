@@ -1,11 +1,12 @@
 #ifndef __PROPERTY_H__
 #define __PROPERTY_H__
 #include "square.h"
+#include "player.h"
 #include <string>
 
 class Property: public Square {
 public:
-	string title;
+	std::string title;
 	int cost;
 	bool purchased;
 	bool mortgaged;
