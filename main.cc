@@ -42,13 +42,15 @@ bool checkUsed(int i, string piece)
 	}
 }
 
-int main() {
+int main() 
+{
 //	srand(time(NULL));
 	int numplayers = 0;
 	int compPlayers = 0;
 	int bankrupts = 0;
 
 	TheBoard *TB = new TheBoard();
+	TB->displaymaker();
 
 	TB->squareArr[0] = new collectOSAP;
 	TB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
@@ -154,14 +156,8 @@ int main() {
 	int currentturn = 0;
 	while(numplayers > 1)
 	{
-		Player &currentplayer = *(players[currentturn]);
+		Player &currentplayer = *(players[currentturn % 7]);
+		TB->displayprinter();
 		currentplayer.turn();
-
-		if (currentturn>=0 || currentturn<6) {
-			++currentturn;	
-		} else if (currentturn == 6) {
-			currentturn = 0;
-		}
 	}
-
 }

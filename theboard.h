@@ -11,7 +11,10 @@ public:
 	bool newboard;
 	Square *squareArr[];
 	Player *playerArr[];
+	std::string display[][];
 
+	void displaymaker();
+	void displayprinter();
 	TheBoard();
 	~TheBoard();
 
