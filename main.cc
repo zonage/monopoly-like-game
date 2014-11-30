@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include "theboard.h"
 #include "academicbuilding.h"
@@ -22,7 +24,6 @@
 #include "player.h"
 #include "human.h"
 #include "computer.h"
-#include <string>
 
 using namespace std;
 
@@ -46,7 +47,7 @@ bool checkUsed(int i, string piece)
 	return false;
 }
 
-int main() 
+int main(int argc, char *argv[]) 
 {
 //	srand(time(NULL));
 	int numplayers = 0;
@@ -56,7 +57,7 @@ int main()
 	TheBoard *TB = new TheBoard();
 	TB->displaymaker();
 
-	TB->squareArr[0] = new collectOSAP;
+	TB->squareArr[0] = new collectOSAP();
 	TB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
 	TB->squareArr[2] = new SLC();
 	TB->squareArr[3] = new AcademicBuilding("ML", 60, "Arts1", 4, 50);
@@ -97,60 +98,159 @@ int main()
 	TB->squareArr[38] = new CoopFee();
 	TB->squareArr[39] = new AcademicBuilding("DC", 400, "Math", 50, 200);
 	
-	cout << "How many players? (2-6)" << endl;
-	cin >> numplayers;
-
-	// only makes players if there is at least 2
-	while ((numplayers<2) || (numplayers>6))
+	// checks for command line arguments 
+	if((argc - 1 == 2) && (argv[1] == "-load"))
 	{
-		if (numplayers<2) {
-			cout << "Error, not enough players. Please enter the number of players." << endl;
-			cin >> numplayers;
-		} else {
-			cout << "Error, too many players. Please select a number of players from 2-6." << endl;
-			cin >> numplayers;
-		}
-		
-	}
-	if ((numplayers>=2)&&(numplayers<=6)) {
+		string s;
+		string player;
+		int usepiece = 0;
+		int money;
+		int location;
+		int DC?;
+		int turns;
 
-		// makes players and sets them into array: players
-		for(int i = 0; i < numplayers; ++i)
+		ifstream save(argv[2]);z
+		getline(save, s);
+		istringstream a(s);
+		a >> numplayers;
+
+
+		// loads in the players
+		for(int i = 0; i < numplayers; i++)
 		{
-			string name;
-			string controlType;
-			cout << "Player details (name human/computer) ex: adam human" << endl;
-
-			cin >> name >> controlType;
-			while((controlType != "human") && (controlType != "computer"))
+			getline(save, s);
+			istringstream b(s);
+			b >> player;
+			b >> money;
+			b >> location;
+			if (location == 10)
 			{
-				cout << "Please enter human/computer" << endl;
-				cin >> controlType;
-			}
-
-			if (controlType == "computer") {
-				int j = 0;
-				while (checkUsed(i, pieces[j])) {
-					++j;
+				b >> DC?;
+				if (DC? == 1)
+				{
+					b >> turns;
+					players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money, 0, turns);
+					player[i]->position->occupying = player[i];
 				}
-				players[i] = new Computer(compNames[compPlayers], pieces[j],
-						TB->squareArr[0]);
-				++compPlayers;
+				else
+				{
+					players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money,);
+					player[i]->position->occupying = player[i];
+				}
+			}
+			else
+			{
+				players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money,);
+				player[i]->position->occupying = player[i];	
+			}
+		}
+
+		string owner;
+		int improv;
+		Square * owned = NULL;
+		for(int i = 0; i < 40; i ++)
+		{
+			if ((i == 1) || (i == 3) || (i == 6) || (i == 8) || (i == 9) || (i == 11) || (i == 13) || (i == 16) || 
+				(i == 18) ||(i == 19) || (i == 21) || (i == 23) || (i == 24) ||  (i == 26) || (i == 27) || (i ==29) || 
+				(i == 31) || (i == 32) || (i == 34) || (i == 37) || (i == 39) || (i == 14))
+			{
+				getline(save, s);
+				istringstream c(s);
+				c.ignore();
+				c >> owner >> improv;
+				for(int j = 0; j < numplayers; j++)
+				{
+					if (owner == players[j]->name)
+					{
+						owned = players[j];
+					}
+					else
+					{
+						owned = NULL;
+					}
+				}
+				TB->squareArr[i]->owner = owned;
+				AcademicBuilding * ab = dynamic_cast<AcademicBuilding*>(TB->squareArr[i])
+				ab->improvements = improv;
+			}
+			if ((i == 5) || (i == 12) || (i == 15) || (i == 25) || (i ==28) || (i == 35))
+			{
+				getline(save, s);
+				istringstream d(s);
+				d.ignore();
+				d >> owner;
+				for(int j = 0; j < numplayers; j++)
+				{
+					if (owner == players[j]->name)
+					{
+						owned = players[j];
+					}
+					else
+					{
+						owned = NULL;
+					}
+				}
+				TB->squareArr[i]->owner = owned;
+			}
+		}
+	else
+	{		
+		cout << "How many players? (2-6)" << endl;
+		cin >> numplayers;
+
+
+		// only makes players if there is at least 2
+		while ((numplayers<2) || (numplayers>6))
+		{
+			if (numplayers<2) {
+				cout << "Error, not enough players. Please enter the number of players." << endl;
+				cin >> numplayers;
 			} else {
-				string piece;
-				cout << "Pick character Piece: G, B, D, S, $, L, T" << endl;
-				cin >> piece;
-
-				while (((piece!="G")&&(piece!="B")&&(piece!="D")&&(piece!="S")
-					&&(piece!="$")&&(piece!="L")&&(piece!="T")) 
-					|| checkUsed(i, piece))  {
-					cout << "Please enter a valid character: G, B, D, S, $, L, T" << endl;
-					cin >> piece;
-// do we need to check for char vs string input
-				}
-				players[i] = new Human(name, piece, TB->squareArr[0]);
+				cout << "Error, too many players. Please select a number of players from 2-6." << endl;
+				cin >> numplayers;
 			}
+			
+		}
+		if ((numplayers>=2)&&(numplayers<=6)) {
 
+			// makes players and sets them into array: players
+			for(int i = 0; i < numplayers; ++i)
+			{
+				string name;
+				string controlType;
+				cout << "Player details (name human/computer) ex: adam human" << endl;
+
+				cin >> name >> controlType;
+				while((controlType != "human") && (controlType != "computer"))
+				{
+					cout << "Please enter human/computer" << endl;
+					cin >> controlType;
+				}
+
+				if (controlType == "computer") {
+					int j = 0;
+					while (checkUsed(i, pieces[j])) {
+						++j;
+					}
+					players[i] = new Computer(compNames[compPlayers], pieces[j],
+							TB->squareArr[0]);
+					++compPlayers;
+				} else {
+					string piece;
+					cout << "Pick character Piece: G, B, D, S, $, L, T" << endl;
+					cin >> piece;
+
+					while (((piece!="G")&&(piece!="B")&&(piece!="D")&&(piece!="S")
+						&&(piece!="$")&&(piece!="L")&&(piece!="T")) 
+						|| checkUsed(i, piece))  {
+						cout << "Please enter a valid character: G, B, D, S, $, L, T" << endl;
+						cin >> piece;
+	// do we need to check for char vs string input
+					}
+					players[i] = new Human(name, piece, TB->squareArr[0]);
+				}
+
+			}
 		}
 	}
 /*		// checking if we can do it this way <>
