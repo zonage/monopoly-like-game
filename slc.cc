@@ -1,7 +1,7 @@
 #include "slc.h"
 
 // action: gives the player a tims card or moves the player to random place on the board
-SLC::action() 
+void SLC::action() 
 {
 	// pointer to the TimsLine square
 	TimsLine * timmies = theBoard.squareArr[10];

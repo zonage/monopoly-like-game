@@ -6,7 +6,7 @@ class NonProperty: public Square
 {
 public:
 	virtual void action() = 0;
-	virtual ~NonProperty();
+	~NonProperty();
 };
 
 #endif

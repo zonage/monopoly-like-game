@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include "square.h"
+class Property;
 
 class Player {
 	public:
@@ -13,13 +14,14 @@ class Player {
 	int money;
 	int RimCups;
 	int TimTurns;
-	std::map assets;
+	typedef std::map<std::string,Property*> assets;
 
 	virtual void turn()=0;
 	void addMoney(int);
 	void mortgage();
 	void bankrupt();
 	void roll();
+	void trade();
 	Player();
 	~Player();
 };

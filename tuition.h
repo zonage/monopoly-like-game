@@ -6,10 +6,10 @@
 #include "player.h"
 
 
-class Tuition: public non-property
+class Tuition: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	virtual void action();
 	~Tuition();
 };

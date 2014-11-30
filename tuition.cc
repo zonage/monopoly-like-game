@@ -1,7 +1,7 @@
 #include "tuition.h"
 
 // action: makes players pay 10% of their worth $300
-Tuition::action()
+void Tuition::action()
 {
 	string response;
 	cout << "Would you like to pay 10 percent of your worth or $300?" << endl;

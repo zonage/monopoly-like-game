@@ -11,7 +11,7 @@ void collectOSAP::action()
 //collectOSAP::collectOSAP() {}
 
 // destructor
-collectOSAP::~collectosap()
+collectOSAP::~collectOSAP()
 {
 	delete occupying;
 }

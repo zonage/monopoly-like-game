@@ -5,10 +5,10 @@
 #include "player.h"
 
 
-class SLC: public non-property
+class SLC: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	virtual void action();
 	~SLC();
 };
