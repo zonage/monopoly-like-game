@@ -4,8 +4,8 @@ using namespace std;
 
 Gym::Gym(string title, int cost, string mBlockName, bool purchased=0, 
 		bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL):
-		title(title), cost(cost), mBlockName(mBlockName), purchased(purchased),
-		mortgaged(mortgaged), owner(owner), occupying(occupying) {}
+		Property(purchased, mortgaged, owner, occupying),
+		title(title), cost(cost), mBlockName(mBlockName) {}
 
 Gym::~Gym() {}
 

@@ -9,8 +9,9 @@ using namespace std;
 
 AcademicBuilding::AcademicBuilding(string title, int cost, string mBlockName, int rent,
 		int imprvCost, int improvements):
-  title(title), cost(cost), mBlockName(mBlockName), rent(rent), imprvCost(imprvCost),
-  improvements(improvements) {}
+  	Property(purchased, mortgaged, owner, occupying),
+  	title(title), cost(cost), mBlockName(mBlockName), rent(rent), imprvCost(imprvCost),
+  	improvements(improvements) {}
 
 AcademicBuilding::~AcademicBuilding() {}
 
@@ -24,30 +25,15 @@ void AcademicBuilding::improve() {
 }
 
 void AcademicBuilding::action() {
-//	Human h1 = *(owner);
-//	map m1 = h1.assets;
-//	mBlock mb = *(m1[mBlockName]);
-//	int count = mb.numP;	
-//	map<string, mBlock*>  a = owner->assets["hello"];
-	int count;
- 	Human *hp = dynamic_cast<Human*>(owner);
-	  if(hp) { 
-	    
-            for(int i=0; i<7; ++i) {
-            if (mBlockName == owner->assets[i]->blockName) {
-              count = owner->assets[i]->numP;
-            }
-          }
- 	}	
-	  else { 
-	Computer *cp = dynamic_cast<Computer*>(owner);
-        for(int i=0; i<7; ++i) {
-          if (mBlockName == owner->assets[i]->blockName) {
-            count = owner->assets[i]->numP;
-          }
-        }
-
+ 	for (int i=0; i<6; ++i) {
+ 		if((mBlockName == owner->monopolies[i]->blockName)&&(owner->monopolies[i]->full)) {
+ 			count = 2;
+ 			break;
+ 		} else {
+ 			count =1;
+ 		}
  	}
-	int amount = rent * pow(2, count);
+
+	int amount = rent * count;
 	occupying->addMoney(-amount);
 }

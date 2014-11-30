@@ -6,7 +6,7 @@ Computer::Computer(string name, string charPiece, Square *position, int loc,
 		int money, int RimCups, int TimTurns): 
 		Player(name, charPiece, position, loc, money, TimTurns) {
 		
-		mBlock *assets[6];
+		//mBlock *assets[6];
 	} 
 
 Computer::~Computer() {}

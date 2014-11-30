@@ -5,63 +5,22 @@
 using namespace std;
 
 // constructor
-Player::Player(string name, string charPiece, Square * position, int loc, int money,
-				int RimCups, int TimTurns) :
-				name(name), charPiece(charPiece), position(position), loc(loc), money(money),
-				RimCups(RimCups), TimTurns(TimTurns) {}
+Player::Player(string name, string charPiece, Square * position, 
+			mBlock * monopolies[], Property * pAssets[],
+			int loc, int money, int RimCups, int TimTurns) :
+			name(name), charPiece(charPiece), position(position), 
+			loc(loc), money(money), RimCups(RimCups), TimTurns(TimTurns) 
+			{
+
+				mBlock * monopolies[6];
+				Property * pAssets[30];
+			}
 
 Player::~Player() {}
-/*
-// mortchek: mortgage checker helper function
-bool mortchek(Property* assets[num]) {
-	int i = 0;
-	while (i < num) {
-	  if (assets[i]->mortgaged == true) {
-	  	++i;
-	  } else {
-	  	return true; // there is a property that can be mortgaged
-	  }
-	}
-	return false // all properties have already been mortgaged
-}
 
-// mortgage: iterates through players assets, asking if they would like to mortgage unmortgaged propeties
-void Player::mortgage() {
-	map<string pname, Property *p>::iterator i;
-	string response;
-	for (i = assets.begin(); i != assets.end(); ++i) {
-		if (i->second->mortgaged == false) {
-			cout << "Would you like to mortage" << i->first << "?" << endl;
-			cin >> response;
-		}
-		if (response == "yes") {
-			i->second->mortgaged = true;
-			addMoney(0.5*(i->second->cost));
-		} else if (response == "no") {
-			continue;
-		}
-	}
-}
-
-// bankrupt: declares a person's bankruptcy
-void Player::bankrupt() {
-	cout << "You're bankrupt!" << endl;
-}
-
-// adds/subtracts money from player, if player's money < 0, offers mortgage option
-void Player::addMoney(int amount) {
+void Player::mortgage(string propertyName) {
 	
-	money += amount;
-
-	if (money < 0) {
-	  while (mortchek(assets) && (money<0)) {
-	  	this.mortgage();
-	  }
-	}
-	if (!mortchek(assets) && (money<0)) {
-		this.bankrupt();
-	}
-}*/
+}
 
 // roll: rolls the dice and changes the position of the player.
 void Player::roll()
@@ -128,3 +87,55 @@ void Player::roll()
 	}
 }
 
+/*
+// mortchek: mortgage checker helper function
+bool mortchek(Property* assets[num]) {
+	int i = 0;
+	while (i < num) {
+	  if (assets[i]->mortgaged == true) {
+	  	++i;
+	  } else {
+	  	return true; // there is a property that can be mortgaged
+	  }
+	}
+	return false // all properties have already been mortgaged
+}
+
+// mortgage: iterates through players assets, asking if they would like to mortgage unmortgaged propeties
+void Player::mortgage() {
+	map<string pname, Property *p>::iterator i;
+	string response;
+	for (i = assets.begin(); i != assets.end(); ++i) {
+		if (i->second->mortgaged == false) {
+			cout << "Would you like to mortage" << i->first << "?" << endl;
+			cin >> response;
+		}
+		if (response == "yes") {
+			i->second->mortgaged = true;
+			addMoney(0.5*(i->second->cost));
+		} else if (response == "no") {
+			continue;
+		}
+	}
+}
+*/
+
+// bankrupt: declares a person's bankruptcy
+void Player::bankrupt() {
+	cout << "You're bankrupt!" << endl;
+}
+
+// adds/subtracts money from player, if player's money < 0, offers mortgage option
+void Player::addMoney(int amount) {
+	
+	money += amount;
+
+	if (money < 0) {
+	  while (mortchek(assets) && (money<0)) {
+	  	this.mortgage();
+	  }
+	}
+	if (!mortchek(assets) && (money<0)) {
+		this.bankrupt();
+	}
+}

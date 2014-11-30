@@ -12,7 +12,8 @@ public:
 	int improvements;
 	int imprvCost;
 
-AcademicBuilding(std::string title, int cost, std::string mBlockName, int rent, int imprvCost, int improvements=0);
+AcademicBuilding(std::string title, int cost, std::string mBlockName, int rent,
+				int imprvCost, int improvements=0);
 
 	~AcademicBuilding();
 	void improve();
