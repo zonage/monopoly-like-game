@@ -21,25 +21,29 @@
 #include <iostream>
 #include "player.h"
 #include "human.h"
-
+#include "computer.h"
 #include <string>
 
 using namespace std;
 
 Square * board[40];
 Player * players[6];
-string pieces[6] = {"G", "B", "D", "S", "$", "L", "T"};
+string pieces[7] = {"G", "B", "D", "S", "$", "L", "T"};
 string compNames[6] = {"Jenkins", "Roy", "The Hulk", "Batman", "Stuff", "Turkey"};
 
 bool checkUsed(int i, string piece)
 {
-	for(int j = 0; j < i, j++)
+	for(int j = 0; j < i; j++)
 	{
+		Human
 		if (piece == players[j]->charPiece)
 		{
-			return true;
+		  return true;
+		} else {
+		  return false;
 		}
 	}
+	return false;
 }
 
 int main() 
@@ -129,20 +133,22 @@ int main()
 				while (checkUsed(i, pieces[j])) {
 					++j;
 				}
-				players[i] = new Computer(compNames[compPlayers], pieces[j]);
+				players[i] = new Computer(compNames[compPlayers], pieces[j],
+						TB->squareArr[0]);
 				++compPlayers;
 			} else {
-				char piece;
+				string piece;
 				cout << "Pick character Piece: G, B, D, S, $, L, T" << endl;
 				cin >> piece;
 
-				while (((piece!='G')&&(piece!='B')&&(piece!='D')&&(piece!='S')
-					&&(piece!='$')&&(piece!='L')&&(piece!='T')) || checkUsed(i, piece))  {
+				while (((piece!="G")&&(piece!="B")&&(piece!="D")&&(piece!="S")
+					&&(piece!="$")&&(piece!="L")&&(piece!="T")) 
+					|| checkUsed(i, piece))  {
 					cout << "Please enter a valid character: G, B, D, S, $, L, T" << endl;
 					cin >> piece;
 // do we need to check for char vs string input
 				}
-				players[i] = new Human(name, piece);
+				players[i] = new Human(name, piece, TB->squareArr[0]);
 			}
 
 		}

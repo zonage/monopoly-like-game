@@ -5,9 +5,6 @@ class Square {
 
 	public:
 	int number;
-
-	std::string display;
-	
 	Square();
 	~Square();
 	virtual void action()=0;

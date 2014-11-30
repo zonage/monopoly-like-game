@@ -6,14 +6,13 @@
 
 class Property: public Square {
 	public:
-	std::string title;
-	int cost;
+	
 	bool purchased;
 	bool mortgaged;
 	Player *owner;
 	Player *occupying;
 
-	Property(std::string title, int cost, bool purchased, bool mortgaged, Player *owner);
+	Property(bool purchased=0, bool mortgaged=0, Player *owner=NULL);
 	~Property();
 	void buy();
 	virtual void action() = 0;

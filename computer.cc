@@ -1,15 +1,14 @@
-#incude "computer.h"
+#include <iostream>
+#include "computer.h"
 using namespace std;
 
-Computer::Computer() {
-	string name = Jenkin;
-	char charPiece = '@';
-	Square *position;
-	int loc;
-	int money = 1500;
-	int RimCups = 0;
-	int TimTurns = 3;
-}
+Computer::Computer(string name, string charPiece, Square *position, int loc,
+		int money, int RimCups, int TimTurns): 
+		name(name), charPiece(charPiece), position(position), loc(loc),
+		money(money), RimCups(RimCups), TimTurns(TimTurns) {
+		
+		mBlock *assets[6];
+	} 
 
 Computer::~Computer() {}
 

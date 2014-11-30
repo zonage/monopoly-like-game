@@ -11,7 +11,7 @@ public:
 	bool newboard;
 	Square *squareArr[];
 	Player *playerArr[];
-	std::string display[][];
+	std::string display[56][89];
 
 	void displaymaker();
 	void displayprinter();

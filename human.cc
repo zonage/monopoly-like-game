@@ -5,12 +5,13 @@
 using namespace std;
 
 // constructor
-Human::Human(string name, char charPiece, Square *position, int money, int RimCups
+Human::Human(string name, string charPiece, Square *position,int loc, int money, int RimCups
 		int TimTurns):
-	name(name), money(money), RimCups(RimCups), TimTurns(TimTurns), position(position),
-	charPiece(charPiece) {
+	name(name), charPiece(charPiece), loc(loc), money(money), RimCups(RimCups), 
+	TimTurns(TimTurns), position(position) {
 
-	map<std::string,Property*> assets;
+	mBlock *assets[6];		
+	
 }
 
 Human::~Human() {}

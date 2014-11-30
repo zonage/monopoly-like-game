@@ -2,8 +2,8 @@
 using namespace std;
 
 // constructor
-Property::Property(string title, int cost, bool purchased=0, bool mortgaged=0, Player *owner=NULL): 
-	title(title), cost(cost) {}
+Property::Property(bool purchased, bool mortgaged, Player *owner):
+		purchased(purchased), mortgaged(mortgaged), owner(owner) {}
 
 // destructor
 Property::~Property() {}

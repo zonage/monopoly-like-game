@@ -5,6 +5,8 @@
 
 class Gym: public Property {
 public:
+	std::string title;
+	int cost;
 	std::string mBlockName;
 	int rent;
 
