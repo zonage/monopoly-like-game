@@ -7,11 +7,11 @@
 
 using namespace std;
 
-AcademicBuilding::AcademicBuilding(string title, int cost, string mBlockName, int rent,
-		int imprvCost, int improvements):
-  	Property(purchased, mortgaged, owner, occupying),
-  	title(title), cost(cost), mBlockName(mBlockName), rent(rent), imprvCost(imprvCost),
-  	improvements(improvements) {}
+AcademicBuilding::AcademicBuilding(int number, string title, int cost, string mBlockName, int rent,
+						bool purchased, bool mortgaged, Player *owner, Player *occupying, 
+						int improvements, int imprvCost):
+			  	Property(number, title, cost, mBlockName, rent, purchased, mortgaged, owner, occupying),
+			  	imprvCost(imprvCost), improvements(improvements) {}
 
 AcademicBuilding::~AcademicBuilding() {}
 

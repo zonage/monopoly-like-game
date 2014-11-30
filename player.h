@@ -25,13 +25,10 @@ class Player {
 	void bankrupt();
 	void roll();
 	void trade();
-<<<<<<< Updated upstream
-	Player(std::string name = "fred", std::string charPiece = "D", Square *position = NULL,, int loc
-			, int money, int RimCups, int TimTurns);
-=======
-	Player(std::string name, std::string charPiece, Square * position,
+
+	Player(std::string name = "fred", std::string charPiece = "D", Square * position=NULL,
 		int loc=0, int money=1500, int RimCups=0, int TimTurns=3);
->>>>>>> Stashed changes
+
 	virtual ~Player();
 };
 

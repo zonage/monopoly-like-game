@@ -3,8 +3,7 @@ using namespace std;
 
 Res::Res(string title, int cost, string mBlockName, int rent, 
 	bool purchased, bool mortgaged, Player *owner, Player *occupying):
-	Property(purchased, mortgaged, owner, occupying),
-	title(title), cost(cost), mBlockName(mBlockName), rent(rent) {}
+	Property(number, title, cost, mBlockName, rent, purchased, mortgaged, owner, occupying) {}
 
 Res::~Res() {}
 

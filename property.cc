@@ -2,8 +2,10 @@
 using namespace std;
 
 // constructor
-Property::Property(bool purchased, bool mortgaged, Player *owner, Player *occupying):
-		purchased(purchased), mortgaged(mortgaged), owner(owner), occupying(occupying) {}
+Property::Property(int number, string title, int cost, string mBlockName, int rent,
+			bool purchased, bool mortgaged, Player *owner, Player *occupying):
+			Square(number, title, cost, mBlockName, rent, purchased, mortgaged,
+			owner, occupying) {}
 
 // destructor
 Property::~Property() {}

@@ -7,12 +7,13 @@
 class Property: public Square {
 	public:
 	
-	bool purchased;
+/*	bool purchased;
 	bool mortgaged;
 	Player *owner;
-	Player *occupying;
+	Player *occupying;*/
 
-	Property(bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying);
+	Property(int number=0, std::string title="", int cost=0, std::string mBlockName="", int rent=0,
+			bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL);
 	virtual ~Property();
 	void buy();
 	virtual void action() = 0;

@@ -2,10 +2,9 @@
 
 using namespace std;
 
-Gym::Gym(string title, int cost, string mBlockName, bool purchased=0, 
-		bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL):
-		Property(purchased, mortgaged, owner, occupying),
-		title(title), cost(cost), mBlockName(mBlockName) {}
+Gym::Gym(string title, int cost, string mBlockName, int rent, 
+	bool purchased, bool mortgaged, Player *owner, Player *occupying):
+	Property(number, title, cost, mBlockName, rent, purchased, mortgaged, owner, occupying) {}
 
 Gym::~Gym() {}
 

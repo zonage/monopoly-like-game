@@ -5,15 +5,16 @@
 
 class AcademicBuilding: public Property{
 public:
-	std::string title;
+/*	std::string title;
 	int cost;
 	std::string mBlockName;
-	int rent;
+	int rent;*/
 	int improvements;
 	int imprvCost;
 
-AcademicBuilding(std::string title, int cost, std::string mBlockName, int rent,
-				int imprvCost, int improvements=0);
+AcademicBuilding(int number=0, std::string title="", int cost=0, std::string mBlockName="", int rent=0,
+				bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL,
+				int imprvCost=0, int improvements=0);
 
 	~AcademicBuilding();
 	void improve();

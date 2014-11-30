@@ -18,8 +18,25 @@ Player::Player(string name, string charPiece, Square * position,
 
 Player::~Player() {}
 
+int Player::deedChecker(string str) {
+	for(int j=0; j<30; ++j) {
+		if (pAssets[j]->title == str) {
+			return j;
+		}
+	}
+
+	return -1;
+}
+
 void Player::mortgage(string propertyName) {
-	
+	int loc = deedChecker(propertyName);
+	if (loc>=0) {
+		pAssets[loc]->mortgaged = true;
+		money += (pAssets[loc]->cost)/2;
+		cout << "You have mortgaged" << propertyName << endl;
+	} else {
+		cout << "You do not own this property."
+	}
 }
 
 // roll: rolls the dice and changes the position of the player.
