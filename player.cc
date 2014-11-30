@@ -4,7 +4,12 @@
 #include "theboard.h"
 using namespace std;
 
-// destructor
+// constructor
+Player::Player(string name, string charPiece, Square * position, int loc, int money,
+				int RimCups, int TimTurns) :
+				name(name), charPiece(charPiece), position(position), loc(loc), money(money),
+				RimCups(RimCups), TimTurns(TimTurns) {}
+
 Player::~Player() {}
 /*
 // mortchek: mortgage checker helper function
@@ -122,3 +127,4 @@ void Player::roll()
 		cout << "You have moved up " << sum << " spaces." << endl;
 	}
 }
+

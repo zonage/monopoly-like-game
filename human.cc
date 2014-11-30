@@ -7,8 +7,7 @@ using namespace std;
 // constructor
 Human::Human(string name, string charPiece, Square *position,int loc, int money, int RimCups
 		int TimTurns):
-	name(name), charPiece(charPiece), loc(loc), money(money), RimCups(RimCups), 
-	TimTurns(TimTurns), position(position) {
+	Player(name, charPiece, position, loc, money, TimTurns) {
 
 	mBlock *assets[6];		
 	

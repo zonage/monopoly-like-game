@@ -4,8 +4,7 @@ using namespace std;
 
 Computer::Computer(string name, string charPiece, Square *position, int loc,
 		int money, int RimCups, int TimTurns): 
-		name(name), charPiece(charPiece), position(position), loc(loc),
-		money(money), RimCups(RimCups), TimTurns(TimTurns) {
+		Player(name, charPiece, position, loc, money, TimTurns) {
 		
 		mBlock *assets[6];
 	} 

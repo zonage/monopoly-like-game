@@ -13,7 +13,7 @@ class Property: public Square {
 	Player *occupying;
 
 	Property(bool purchased=0, bool mortgaged=0, Player *owner=NULL);
-	~Property();
+	virtual ~Property();
 	void buy();
 	virtual void action() = 0;
 	void mortgage();

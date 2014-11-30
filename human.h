@@ -8,14 +8,7 @@ class Property;
 
 class Human: public Player {
 public:
-	std::string name;
-	std::string charPiece;
-	  Square* position;
-          int loc;
-          int money;
-          int RimCups;
-          int TimTurns;
-        mBlock assets[];
+	mBlock assets[];
 	Human(std::string name, std::string charPiece, Square *position,
 	int loc=0, int money=1500, int RimCups=0, int TimTurns=3);
 	~Human();
