@@ -5,10 +5,10 @@
 #include "player.h"
 
 
-class NeedlesHall: public non-property
+class NeedlesHall: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	virtual void action();
 	~NeedlesHall();
 };

@@ -1,7 +1,7 @@
 #include "coop.h"
 
 // makes player pay $150 to the bank
-CoopFee::action()
+void CoopFee::action()
 {
 	occupying->money -= 150
 }

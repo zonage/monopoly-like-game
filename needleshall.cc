@@ -1,7 +1,7 @@
 #include "needleshall.h"
 
 // action: gives the player a tims card or 
-NeedlesHall::action()
+void NeedlesHall::action()
 {
 	// pointer to the TimsLine square
 	TimsLine * timmies = theBoard.squareArr[10];

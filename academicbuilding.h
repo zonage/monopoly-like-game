@@ -5,13 +5,15 @@
 
 class AcademicBuilding: public Property{
 public:
-	string mBlockName;
+	std::string mBlockName;
 	int rent;
 	int improvements;
 	int imprvCost;
 
-	AcademicBuilding(string title, int cost, bool purchased, bool mortgaged,
- 		Player *owner, Player *occupying, int rent, int improvements, int imprvCost);
+AcademicBuilding(std::string title, int cost, std::string mBlockName, int rent,
+		int imprvCost, bool purchased=false, bool mortgaged=false, 
+		int improvements=0, Player *owner=NULL, Player *occupying=NULL);
+
 	~AcademicBuilding();
 	void improve();
 	virtual void action();

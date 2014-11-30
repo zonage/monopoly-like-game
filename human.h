@@ -3,11 +3,13 @@
 #include <string>
 #include "player.h"
 #include "square.h"
+class Property;
 
-class human: public Player {
+class Human: public Player {
 public:
-	human(string name, char charPiece, Square *position, int money, int RimCups/*, map assets */);
-	~human();
+	Human(std::string name, char charPiece, Square *position=TB->squareArr[0], 
+	int money=1500, int RimCups=0);
+	~Human();
 	virtual void turn();
 };
 

@@ -4,10 +4,10 @@
 #include "nonproperty.h"
 #include "player.h"
 
-class TimsLine: public non-property
+class TimsLine: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	int cupsinplay;
 	virtual void action();
 	~TimsLine();

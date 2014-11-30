@@ -4,15 +4,13 @@
 #include "player.h"
 
 
-class collectOSAP: public non-property
+class collectOSAP: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	virtual void action();
-<<<<<<< Updated upstream
-=======
+
 	//collectOSAP();
->>>>>>> Stashed changes
 	~collectOSAP();
 };
 

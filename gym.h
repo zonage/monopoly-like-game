@@ -5,11 +5,13 @@
 
 class Gym: public Property {
 public:
-	string mBlockName;
+	std::string mBlockName;
 	int rent;
 
-	Gym(string title, int cost, bool purchased, bool mortgaged,
- 		Player *owner, Player *occupying, string mBlockName);
+	Gym(std::string title, int cost, std::string mBlockName, 
+		bool purchased=0, bool mortgaged=0,
+ 		Player *owner=NULL, Player *occupying=NULL);
+
 	~Gym();
 	virtual void action();
 };

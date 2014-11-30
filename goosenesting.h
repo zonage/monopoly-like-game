@@ -1,14 +1,14 @@
 #ifndef __GOOSENESTING_H__
 #define __GOOSENESTING_H__
 #include <iostream>
-#include "non-property.h"
+#include "nonproperty.h"
 #include "player.h"
 
 
-class GooseNesting: public non-property
+class GooseNesting: public NonProperty
 {
 public:
-	player * occupying;
+	Player * occupying;
 	virtual void action();
 	~GooseNesting();
 };

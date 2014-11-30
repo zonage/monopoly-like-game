@@ -1,7 +1,7 @@
 #include "goosenesting.h"
 
 // does nothing
-GooseNesting::action() 
+void GooseNesting::action() 
 {
 	cout << "You got attacked by nesting geese!" << endl;
 }

@@ -2,13 +2,14 @@
 
 using namespace std;
 
-Gym::Gym(string title, int cost, bool purchased=0, bool mortgaged=0,
- 		Player *owner=NULL, Player *occupying=NULL, string mBlockName):
-		title(title), cost(cost), mBlockName(mBlockName) {}
+Gym::Gym(string title, int cost, string mBlockName, bool purchased=0, 
+		bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL):
+		title(title), cost(cost), mBlockName(mBlockName), purchased(purchased),
+		mortgaged(mortgaged), owner(owner), occupying(occupying) {}
 
 Gym::~Gym() {}
 
-Gym::action() {
+void Gym::action() {
 	int die1 = rand() % 6 + 1;
 	int die2 = rand() % 6 + 1;
 	

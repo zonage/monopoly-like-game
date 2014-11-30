@@ -2,8 +2,11 @@
 #define __SQUARE_H__
 
 class Square {
-public:
+
+	public:
 	int number;
+
+	std::string display;
 	
 	Square();
 	~Square();

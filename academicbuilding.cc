@@ -4,10 +4,12 @@
 
 using namespace std;
 
-AcademicBuilding::AcademicBuilding(string title, int cost, bool purchased=false, bool mortgaged=false,
- Player *owner=NULL, Player *occupying=NULL, string mBlockName, int rent, int improvements=0, int imprvCost):
-  title(title), cost(cost), mBlockName(mBlockName), rent(rent), imprvCost(imprvCost) {
- }
+AcademicBuilding::AcademicBuilding(string title, int cost, string mBlockName, int rent,
+		int imprvCost, bool purchased, bool mortgaged, 
+		int improvements, Player *owner, Player *occupying):
+  title(title), cost(cost), mBlockName(mBlockName), rent(rent), imprvCost(imprvCost)
+  purchased(purchased), mortgaged(mortgaged), improvements(improvements), owner(owner)
+  occupying(occupying) {}
 
 AcademicBuilding::~AcademicBuilding() {}
 
@@ -20,7 +22,7 @@ void AcademicBuilding::improve() {
 	}
 }
 
-AcademicBuilding::action() {
+void AcademicBuilding::action() {
 	int count = owner->assets[mBlockName]->numP;
 	int amount = rent * pow(2, count);
 	occupying->addMoney(-amount);

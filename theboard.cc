@@ -2,13 +2,14 @@
 
 TheBoard::TheBoard() {
 	Square *squareArr[40];
-	Player *playerArr[4];
+	Player *playerArr[6];
 }
 
 TheBoard::~TheBoard(){
 	delete [] playerArr;
 	delete [] squareArr;
 }
+<<<<<<< Updated upstream
 
 #include <iostream>
 #include <string>
@@ -363,3 +364,5 @@ int main()
 		cout << endl;
 	}
 }
+=======
+>>>>>>> Stashed changes

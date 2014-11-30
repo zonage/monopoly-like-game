@@ -8,13 +8,13 @@ Property::Property(string title, int cost, bool purchased=0, bool mortgaged=0, P
 // destructor
 Property::~Property() {}
 
-Property::buy() {
+void Property::buy() {
 	owner = occupying;
 	owner->addMoney(-cost);
 	purchased = true;
 }
 
-Property::mortgage() {
+void Property::mortgage() {
 	mortgaged = true;
 	owner->addMoney(cost/2);
 }

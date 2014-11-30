@@ -2,16 +2,20 @@
 #include <string>
 #include "human.h"
 
+using namespace std;
 
-/ constructor
-Human::Human(string name, char charPiece, Square *position, int money, int RimCups/*, map assets */):
-	name(name), money(money=1500), RimCups(RimCups=0), TimTurns(TimTurns=3) {
-		map<string pname, Property *p> assets;
-	}
+// constructor
+Human::Human(string name, char charPiece, Square *position, int money, int RimCups
+		int TimTurns):
+	name(name), money(money), RimCups(RimCups), TimTurns(TimTurns), position(position),
+	charPiece(charPiece) {
+
+	map<std::string,Property*> assets;
+}
 
 Human::~Human() {}
 
-Human::turn() {
+void Human::turn() {
 
 	string answer;
 	cout << "Do you want to trade? Answer: (y/n)" endl;
