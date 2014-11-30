@@ -23,7 +23,7 @@ class Player {
 	void bankrupt();
 	void roll();
 	void trade();
-	Player(std::string name, std::string charPiece, Square * position, int loc
+	Player(std::string name = "fred", std::string charPiece = "D", Square *position = NULL,, int loc
 			, int money, int RimCups, int TimTurns);
 	virtual ~Player();
 };
