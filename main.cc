@@ -53,52 +53,169 @@ int main(int argc, char *argv[])
 	int compPlayers = 0;
 	int bankrupts = 0;
 
-	TheBoard *TheB = new TheBoard();
+	TheBoard TheBo;
+	TheBoard *TheB = &TheBo;
 	TheB->displaymaker();
 		
-//	collectOSAP c;	
-//	Square *p = &c;
-	TheB->squareArr[0] =  new collectOSAP();
-//	cout << TheB->squareArr[0]->title << endl;
-	TheB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
-	TheB->squareArr[2] = new SLC();
-	TheB->squareArr[3] = new AcademicBuilding("ML", 60, "Arts1", 4, 50);
-	TheB->squareArr[4] = new Tuition();
-	TheB->squareArr[5] = new Res("MKV", 200, "Residences", 25);
-	TheB->squareArr[6] = new AcademicBuilding("ECH", 100, "Arts2", 6, 50);
-	TheB->squareArr[7] = new NeedlesHall();
-	TheB->squareArr[8] = new AcademicBuilding("PAS", 100, "Arts2", 6, 50);
-	TheB->squareArr[9] = new AcademicBuilding("HH", 120, "Arts2", 8, 50);
-	TheB->squareArr[10] = new TimsLine();
-	TheB->squareArr[11] = new AcademicBuilding("RCH", 140, "Eng", 10, 100);
-	TheB->squareArr[12] = new Gym("PAC", 150, "Gyms");
-	TheB->squareArr[13] = new AcademicBuilding("DWE", 140, "Eng", 10, 100);
-	TheB->squareArr[14] = new AcademicBuilding("CPH", 160, "Eng", 12, 100);
-	TheB->squareArr[15] = new Res("UWP", 200, "Residences", 25);
-	TheB->squareArr[16] = new AcademicBuilding("LHI", 180, "Health", 14, 100);
-	TheB->squareArr[17] = new SLC();
-	TheB->squareArr[18] = new AcademicBuilding("BMH", 180, "Health", 14, 100);
-	TheB->squareArr[19] = new AcademicBuilding("OPT", 200, "Health", 16, 100);
-	TheB->squareArr[20] = new GooseNesting();
-	TheB->squareArr[21] = new AcademicBuilding("EV1", 220, "Env", 18, 150);
-	TheB->squareArr[22] = new NeedlesHall();
-	TheB->squareArr[23] = new AcademicBuilding("EV2", 220, "Env", 18, 150);
-	TheB->squareArr[24] = new AcademicBuilding("EV3", 240, "Env", 20, 150);
-	TheB->squareArr[25] = new Res("V1", 200, "Residences", 25);
-	TheB->squareArr[26] = new AcademicBuilding("PHYS", 260, "Sci1", 22, 150);
-	TheB->squareArr[27] = new AcademicBuilding("B1", 260, "Sci1", 22, 150);
-	TheB->squareArr[28] = new Gym("CIF", 150, "Gyms");
-	TheB->squareArr[29] = new AcademicBuilding("B2", 280, "Sci1", 24, 150);
-	TheB->squareArr[30] = new GoToTims();
-	TheB->squareArr[31] = new AcademicBuilding("EIT", 300, "Sci2", 26, 200);
-	TheB->squareArr[32] = new AcademicBuilding("ESC", 300, "Sci2", 26, 200);
-	TheB->squareArr[33] = new SLC();
-	TheB->squareArr[34] = new AcademicBuilding("C2", 320, "Sci2", 28, 200);
-	TheB->squareArr[35] = new Res("REV", 200, "Residences", 25);
-	TheB->squareArr[36] = new NeedlesHall();
-	TheB->squareArr[37] = new AcademicBuilding("MC", 350, "Math", 35, 200);
-	TheB->squareArr[38] = new CoopFee();
-	TheB->squareArr[39] = new AcademicBuilding("DC", 400, "Math", 50, 200);
+	collectOSAP C;	
+	Square *pC = &C;
+	TheB->squareArr[0] = pC;
+	
+	AcademicBuilding AL("AL", 40, "Arts1", 2, 50);
+	Square *pAL = &Al;
+	TheB->squareArr[1] = pAl;
+
+	SLC S;
+	Square *pS = &S;
+	TheB->squareArr[2] = pS;
+
+	AcademicBuilding ML("ML", 60, "Arts1", 4, 50);	
+	Square *pML = &ML;
+	TheB->squareArr[3] = pML;
+
+	Tuition T;
+	Square *pT = &T;
+	TheB->squareArr[4] = pT;
+	
+	Res MKV("MKV", 200, "Residences", 25);
+	Square *pMKV = &MKV;
+	TheB->squareArr[5] = pMKV;
+
+	AcademicBuilding ECH("ECH", 100, "Arts2", 6, 50);
+	Square *pECH = &ECH;
+	TheB->squareArr[6] = pECH;
+
+	NeedlesHall NH;
+	Square *pNH = &NH;
+	TheB->squareArr[7] = pNH;
+	
+	AcademicBuilding PAS("PAS", 100, "Arts2", 6, 50);
+	Square * pPAS = &PAS;
+	TheB->squareArr[8] = pPAS;
+
+	AcademicBuilding HH("HH", 120, "Arts2", 8, 50);
+	Square *pHH = &HH;
+	TheB->squareArr[9] = pHH;
+
+ 	TimsLine T;
+ 	Square *pT = &T;
+ 	TheB->squareArr[10] = pT;
+
+	AcademicBuilding RCH("RCH", 140, "Eng", 10, 100);
+	Square *pRCH = &RCH;
+	TheB->squareArr[11] = pRCH;
+
+	Gym PAC("PAC", 150, "Gyms");
+	Square *pPAC = &PAC;
+	TheB->squareArr[12] = pPAC;
+
+	AcademicBuilding DWE("DWE", 140, "Eng", 10, 100);
+	Square *pDWE = &DWE;
+	TheB->squareArr[13] = pDWE; 
+
+	AcademicBuilding CPH("CPH", 160, "Eng", 12, 100);
+	Square *pCPH = &CPH;
+	TheB->squareArr[14] = pCPH;
+
+	Res UWP("UWP", 200, "Residences", 25);
+	Square *pUWP = &UWP;
+	TheB->squareArr[15] = pUWP;
+
+	AcademicBuilding LHI("LHI", 180, "Health", 14, 100);
+	Square *pLHI = &LHI;
+	TheB->squareArr[16] = pLHI;
+
+	SLC S2;
+	Square *pS2 = &S2;
+	TheB->squareArr[17] = pS2;
+
+	AcademicBuilding BMH("BMH", 180, "Health", 14, 100);
+	Square *pBMH = &BMH;
+	TheB->squareArr[18] = pBMH; 
+
+	AcademicBuilding OPT("OPT", 200, "Health", 16, 100);
+	Square *pOPT = &OPT;
+	TheB->squareArr[19] = pOPT;
+
+	GooseNesting GN;
+	Square *pGN = &GN;
+	TheB->squareArr[20] = pGN;
+
+	AcademicBuilding EV1("EV1", 220, "Env", 18, 150);
+	Square *pEV1 = &EV1;
+	TheB->squareArr[21] = pEV1;
+
+	NeedlesHall NH2;
+	Square *pNH2 = &NH2;
+	TheB->squareArr[22] pNH2;
+
+	AcademicBuilding EV2("EV2", 220, "Env", 18, 150);
+	Square *pEV2 =&EV2;
+	TheB->squareArr[23] = pEV2;
+
+	AcademicBuilding EV3("EV3", 240, "Env", 20, 150);
+	Square *pEV3 = &EV3;
+	TheB->squareArr[24] = pEV3;
+
+	Res V1("V1", 200, "Residences", 25);
+	Square *pV1 = &V1;
+	TheB->squareArr[25] = pV1;
+
+	AcademicBuilding PHYS("PHYS", 260, "Sci1", 22, 150);
+	Square *pPHYS = &PHYS;
+	TheB->squareArr[26] = pPHYS;
+
+	AcademicBuilding B1("B1", 260, "Sci1", 22, 150);
+	Square *pB1 = &B1;
+	TheB->squareArr[27] = pB1;
+	
+	Gym CIF("CIF", 150, "Gyms");
+	Square *pCIF = &CIF;
+	TheB->squareArr[28] = pCIF;
+
+	AcademicBuilding B2("B2", 280, "Sci1", 24, 150);
+	Square * pB2 = &B2;
+	TheB->squareArr[29] = pB2;
+
+	GoToTims GTT;
+	Square *pGTT = &GTT;
+	TheB->squareArr[30] = pGTT;
+
+	AcademicBuilding EIT("EIT", 300, "Sci2", 26, 200);
+	Square *pEIT = &EIT;
+	TheB->squareArr[31] = pEIT;
+
+	AcademicBuilding ESC("ESC", 300, "Sci2", 26, 200);
+	Square *pESC = &ESC;
+	TheB->squareArr[32] = pESC;
+
+	SLC S3;
+	Square *pS3 = &S3;
+	TheB->squareArr[33] = pS3;
+
+	AcademicBuilding C2("C2", 320, "Sci2", 28, 200);
+	Square * pC2 = &C2;
+	TheB->squareArr[34] = pC2;
+
+	Res REV("REV", 200, "Residences", 25);
+	Square *pREV = &REV;
+	TheB->squareArr[35] = pREV; 
+
+	NeedlesHall NH3;
+	Square *pNH3 = &NH3;
+	TheB->squareArr[36] = pNH3;
+
+	AcademicBuilding MC("MC", 350, "Math", 35, 200);
+	Square *pMC = &MC;
+	TheB->squareArr[37] = pMC;
+
+	CoopFee CooP;
+	Square * pCoop = &CooP;
+	TheB->squareArr[38] = pCoop;
+
+	AcademicBuilding DC("DC", 400, "Math", 50, 200);
+	Square *pDC = &DC;
+	TheB->squareArr[39] = pDC;
 
 
 	// checks for command line arguments 
