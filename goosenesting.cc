@@ -1,4 +1,7 @@
+#include <iostream>
 #include "goosenesting.h"
+
+using namespace std;
 
 // does nothing
 void GooseNesting::action() 

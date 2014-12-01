@@ -12,9 +12,9 @@ public:
 	int improvements;
 	int imprvCost;
 
-AcademicBuilding(int number=0, std::string title="", int cost=0, std::string mBlockName="", int rent=0,
-				bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL,
-				int imprvCost=0, int improvements=0);
+AcademicBuilding(std::string title="", int cost=0, std::string mBlockName="", int rent=0, int imprvCost=0,
+				int number=0, bool purchased=0, bool mortgaged=0, 
+				Player *owner=NULL, Player *occupying=NULL, int improvements=0);
 
 	~AcademicBuilding();
 	void improve();

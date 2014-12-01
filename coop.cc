@@ -3,7 +3,7 @@
 // makes player pay $150 to the bank
 void CoopFee::action()
 {
-	occupying->money -= 150
+	occupying->money -= 150;
 }
 
 // destructor

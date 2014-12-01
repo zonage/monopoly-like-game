@@ -20,4 +20,6 @@ public:
 
 };
 
+//TheBoard *TB;
+
 #endif

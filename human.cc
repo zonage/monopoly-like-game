@@ -5,8 +5,8 @@
 using namespace std;
 
 // constructor
-Human::Human(string name, string charPiece, Square *position,int loc, int money, int RimCups
-		int TimTurns):
+Human::Human(string name, string charPiece, Square *position,int loc,
+	 int money, int RimCups, int TimTurns):
 	Player(name, charPiece, position, loc, money, TimTurns) {
 
 	//mBlock *assets[6];		
@@ -18,7 +18,7 @@ Human::~Human() {}
 void Human::turn() {
 
 	string answer;
-	cout << "Do you want to trade? Answer: (y/n)" endl;
+	cout << "Do you want to trade? Answer: (y/n)" << endl;
 	cin >> answer;
 
 	while((answer != "y") && (answer != "n"))
@@ -64,7 +64,7 @@ void Human::turn() {
 			if (answer == "y")
 			{
 				cout << "You have used a Roll Up the Rim cup." << endl;
-				cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+				cout << "Congratulations, you've cleared the DC Tim's Line!" << endl;
 				--RimCups;
 				TimTurns == 3;
 				cout << "Rim cups: " << RimCups << endl;
@@ -84,7 +84,7 @@ void Human::turn() {
 		// pays $50 to get out of Tim's Line
 		if (answer == "y")
 		{
-			cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+			cout << "Congratulations, you've cleared the DC Tim's Line!" << endl;
 			money -= 50;
 			TimTurns = 3;
 			break;
@@ -97,11 +97,11 @@ void Human::turn() {
 			// Must pay $50 condition
 			if (TimTurns == 2)
 			{
-				cout "Must... get out... of Tim's Line.." << endl;
-				cout "Paid $50" << endl;
-				mone -=50;
+				cout << "Must... get out... of Tim's Line.." << endl;
+				cout << "Paid $50" << endl;
+				money -=50;
 				TimTurns = 3;
-				cout << "Congratulations, you've cleared the DC Tim's Line!" endl;
+				cout << "Congratulations, you've cleared the DC Tim's Line!" << endl;
 				break;
 			}	
 			else if (TimTurns != 3)
@@ -121,7 +121,7 @@ void Human::turn() {
 	roll();
 	position->action();
 	
-	cout << "Do you want to trade? Answer: (y/n)" endl;
+	cout << "Do you want to trade? Answer: (y/n)" << endl;
 	cin >> answer;
 
 	while((answer != "y") && (answer != "n"))
@@ -146,5 +146,5 @@ void Human::turn() {
 	{
 		// mortgage function
 	}
-	cout << "End of turn." endl;
+	cout << "End of turn." << endl;
 }

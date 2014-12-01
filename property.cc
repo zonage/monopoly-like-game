@@ -2,9 +2,9 @@
 using namespace std;
 
 // constructor
-Property::Property(int number, string title, int cost, string mBlockName, int rent,
+Property::Property(string title, int cost, string mBlockName, int rent, int number, 
 			bool purchased, bool mortgaged, Player *owner, Player *occupying):
-			Square(number, title, cost, mBlockName, rent, purchased, mortgaged,
+			Square(title, cost, mBlockName, rent, number, purchased, mortgaged,
 			owner, occupying) {}
 
 // destructor

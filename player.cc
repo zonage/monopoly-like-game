@@ -1,19 +1,23 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "player.h"
 #include "theboard.h"
+#include "property.h"
 using namespace std;
+
+//TheBoard *TB;
 
 // constructor
 Player::Player(string name, string charPiece, Square * position, 
-			mBlock * monopolies[], Property * pAssets[],
-			int loc, int money, int RimCups, int TimTurns) :
+			int loc, int money, int RimCups, int TimTurns):
 			name(name), charPiece(charPiece), position(position), 
 			loc(loc), money(money), RimCups(RimCups), TimTurns(TimTurns) 
 			{
 
 				mBlock * monopolies[6];
 				Property * pAssets[30];
+				TheBoard *TB=NULL;
 			}
 
 Player::~Player() {}
@@ -35,13 +39,14 @@ void Player::mortgage(string propertyName) {
 		money += (pAssets[loc]->cost)/2;
 		cout << "You have mortgaged" << propertyName << endl;
 	} else {
-		cout << "You do not own this property."
+		cout << "You do not own this property." << endl;
 	}
 }
 
 // roll: rolls the dice and changes the position of the player.
 void Player::roll()
 {
+	srand(time(NULL));
 	int doubles = 0;
 	int die1 = 0;
 	int die2 = 0;
@@ -63,7 +68,7 @@ void Player::roll()
 				cout << "You've been sent to the DC Tim's Line!" << endl;
 				TimTurns = 0;
 				loc = 10;
-				position = theBoard.squareArr[10];
+				position = TB->squareArr[10];
 				position->action();
 				break;
 			}
@@ -97,9 +102,11 @@ void Player::roll()
 	// moves player the number of spaces as their roll if no special function has occured			
 	if (behaviour == "normal")
 	{
+		cout << "doing normal behaviour" <<endl;
 		sum == die1 + die2;
 		loc += sum;
-		position = theBoard.squareArr[loc];
+		cout << TB->squareArr[0]->title << endl;
+		//position = TB->squareArr[loc];
 		cout << "You have moved up " << sum << " spaces." << endl;
 	}
 }
@@ -147,7 +154,7 @@ void Player::addMoney(int amount) {
 	
 	money += amount;
 
-	if (money < 0) {
+/*	if (money < 0) {
 	  while (mortchek(assets) && (money<0)) {
 	  	this.mortgage();
 	  }
@@ -155,4 +162,5 @@ void Player::addMoney(int amount) {
 	if (!mortchek(assets) && (money<0)) {
 		this.bankrupt();
 	}
+*/
 }

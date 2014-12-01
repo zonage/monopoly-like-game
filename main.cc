@@ -36,7 +36,6 @@ bool checkUsed(int i, string piece)
 {
 	for(int j = 0; j < i; j++)
 	{
-		Human
 		if (piece == players[j]->charPiece)
 		{
 		  return true;
@@ -49,14 +48,59 @@ bool checkUsed(int i, string piece)
 
 int main(int argc, char *argv[]) 
 {
-//	srand(time(NULL));
+	srand(time(NULL));
 	int numplayers = 0;
 	int compPlayers = 0;
 	int bankrupts = 0;
 
-	TheBoard *TB = new TheBoard();
-	TB->displaymaker();
+	TheBoard *TheB = new TheBoard();
+	TheB->displaymaker();
+		
+//	collectOSAP c;	
+//	Square *p = &c;
+	TheB->squareArr[0] =  new collectOSAP();
+//	cout << TheB->squareArr[0]->title << endl;
+	TheB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
+	TheB->squareArr[2] = new SLC();
+	TheB->squareArr[3] = new AcademicBuilding("ML", 60, "Arts1", 4, 50);
+	TheB->squareArr[4] = new Tuition();
+	TheB->squareArr[5] = new Res("MKV", 200, "Residences", 25);
+	TheB->squareArr[6] = new AcademicBuilding("ECH", 100, "Arts2", 6, 50);
+	TheB->squareArr[7] = new NeedlesHall();
+	TheB->squareArr[8] = new AcademicBuilding("PAS", 100, "Arts2", 6, 50);
+	TheB->squareArr[9] = new AcademicBuilding("HH", 120, "Arts2", 8, 50);
+	TheB->squareArr[10] = new TimsLine();
+	TheB->squareArr[11] = new AcademicBuilding("RCH", 140, "Eng", 10, 100);
+	TheB->squareArr[12] = new Gym("PAC", 150, "Gyms");
+	TheB->squareArr[13] = new AcademicBuilding("DWE", 140, "Eng", 10, 100);
+	TheB->squareArr[14] = new AcademicBuilding("CPH", 160, "Eng", 12, 100);
+	TheB->squareArr[15] = new Res("UWP", 200, "Residences", 25);
+	TheB->squareArr[16] = new AcademicBuilding("LHI", 180, "Health", 14, 100);
+	TheB->squareArr[17] = new SLC();
+	TheB->squareArr[18] = new AcademicBuilding("BMH", 180, "Health", 14, 100);
+	TheB->squareArr[19] = new AcademicBuilding("OPT", 200, "Health", 16, 100);
+	TheB->squareArr[20] = new GooseNesting();
+	TheB->squareArr[21] = new AcademicBuilding("EV1", 220, "Env", 18, 150);
+	TheB->squareArr[22] = new NeedlesHall();
+	TheB->squareArr[23] = new AcademicBuilding("EV2", 220, "Env", 18, 150);
+	TheB->squareArr[24] = new AcademicBuilding("EV3", 240, "Env", 20, 150);
+	TheB->squareArr[25] = new Res("V1", 200, "Residences", 25);
+	TheB->squareArr[26] = new AcademicBuilding("PHYS", 260, "Sci1", 22, 150);
+	TheB->squareArr[27] = new AcademicBuilding("B1", 260, "Sci1", 22, 150);
+	TheB->squareArr[28] = new Gym("CIF", 150, "Gyms");
+	TheB->squareArr[29] = new AcademicBuilding("B2", 280, "Sci1", 24, 150);
+	TheB->squareArr[30] = new GoToTims();
+	TheB->squareArr[31] = new AcademicBuilding("EIT", 300, "Sci2", 26, 200);
+	TheB->squareArr[32] = new AcademicBuilding("ESC", 300, "Sci2", 26, 200);
+	TheB->squareArr[33] = new SLC();
+	TheB->squareArr[34] = new AcademicBuilding("C2", 320, "Sci2", 28, 200);
+	TheB->squareArr[35] = new Res("REV", 200, "Residences", 25);
+	TheB->squareArr[36] = new NeedlesHall();
+	TheB->squareArr[37] = new AcademicBuilding("MC", 350, "Math", 35, 200);
+	TheB->squareArr[38] = new CoopFee();
+	TheB->squareArr[39] = new AcademicBuilding("DC", 400, "Math", 50, 200);
 
+<<<<<<< Updated upstream
 	TB->squareArr[0] = new collectOSAP();
 	TB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
 	TB->squareArr[2] = new SLC();
@@ -100,6 +144,14 @@ int main(int argc, char *argv[])
 	
 	// checks for command line arguments 
 	if((argc - 1 == 2) && (argv[1] == "-load"))
+=======
+cout << TheB->squareArr[0]->title << endl;
+	cout << "How many players? (2-6)" << endl;
+	cin >> numplayers;
+
+	// only makes players if there is at least 2
+	while ((numplayers<2) || (numplayers>6))
+>>>>>>> Stashed changes
 	{
 		string s;
 		string player;
@@ -169,6 +221,7 @@ int main(int argc, char *argv[])
 						owned = NULL;
 					}
 				}
+<<<<<<< Updated upstream
 				TB->squareArr[i]->owner = owned;
 				AcademicBuilding * ab = dynamic_cast<AcademicBuilding*>(TB->squareArr[i])
 				ab->improvements = improv;
@@ -205,6 +258,12 @@ int main(int argc, char *argv[])
 			if (numplayers<2) {
 				cout << "Error, not enough players. Please enter the number of players." << endl;
 				cin >> numplayers;
+=======
+				players[i] = new Computer(compNames[compPlayers], pieces[j],
+						TheB->squareArr[0]);
+				players[i]->TB = TheB;
+				++compPlayers;
+>>>>>>> Stashed changes
 			} else {
 				cout << "Error, too many players. Please select a number of players from 2-6." << endl;
 				cin >> numplayers;
@@ -249,6 +308,12 @@ int main(int argc, char *argv[])
 					}
 					players[i] = new Human(name, piece, TB->squareArr[0]);
 				}
+<<<<<<< Updated upstream
+=======
+				players[i] = new Human(name, piece, TheB->squareArr[0]);
+		  		players[i]->TB = TheB;
+				}
+>>>>>>> Stashed changes
 
 			}
 		}
@@ -258,12 +323,15 @@ int main(int argc, char *argv[])
 		{
 			cout << players[i]->name; << endl;
 		}
-*/
+*/	
+	cout << TheB->squareArr[0]->title <<endl;
 	int currentturn = 0;
 	while(numplayers > 1)
 	{
 		Player &currentplayer = *(players[currentturn % 7]);
-		TB->displayprinter();
+		TheB->displaymaker();
+		TheB->displayprinter();
+	//	cout << TheB->squareArr[0]->title <<endl;
 		currentplayer.turn();
 	}
 }

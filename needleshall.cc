@@ -1,10 +1,21 @@
+#include <cstdlib>
+#include <ctime>
 #include "needleshall.h"
+#include "timsline.h"
+#include "theboard.h"
+#include "square.h"
+
+using namespace std;
+//TheBoard *TB;
 
 // action: gives the player a tims card or 
 void NeedlesHall::action()
 {
+	srand(time(NULL));
 	// pointer to the TimsLine square
-	TimsLine * timmies = theBoard.squareArr[10];
+	Square *TLs = TB->squareArr[10];
+        TimsLine *timmies = dynamic_cast<TimsLine*>(TLs);
+
 	int todo = rand() % 100 + 1;
 
 	// checks whether to give out timCard or normal behaviour

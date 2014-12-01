@@ -7,10 +7,10 @@
 
 using namespace std;
 
-AcademicBuilding::AcademicBuilding(int number, string title, int cost, string mBlockName, int rent,
-						bool purchased, bool mortgaged, Player *owner, Player *occupying, 
-						int improvements, int imprvCost):
-			  	Property(number, title, cost, mBlockName, rent, purchased, mortgaged, owner, occupying),
+AcademicBuilding::AcademicBuilding(string title, int cost, string mBlockName, int rent, int improvements, 
+						int number, bool purchased, bool mortgaged, Player *owner, Player *occupying, 
+						int imprvCost):
+			  	Property(title, cost, mBlockName, rent, number, purchased, mortgaged, owner, occupying),
 			  	imprvCost(imprvCost), improvements(improvements) {}
 
 AcademicBuilding::~AcademicBuilding() {}
@@ -25,6 +25,7 @@ void AcademicBuilding::improve() {
 }
 
 void AcademicBuilding::action() {
+	int count;
  	for (int i=0; i<6; ++i) {
  		if((mBlockName == owner->monopolies[i]->blockName)&&(owner->monopolies[i]->full)) {
  			count = 2;

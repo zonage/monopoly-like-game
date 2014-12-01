@@ -10,7 +10,7 @@ public:
 	std::string mBlockName;
 	int rent;*/
 
-	Res(int number=0, std::string title="", int cost=0, std::string mBlockName="", int rent=0,
+	Res(std::string title="", int cost=0, std::string mBlockName="", int rent=0, int number=0, 
 			bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL);
 
 	~Res();

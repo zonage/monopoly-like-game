@@ -1,4 +1,7 @@
+#include <iostream>
 #include "timsline.h"
+
+using namespace std;
 
 // action: makes players stay on spot until rolling doubles or use tim cup
 void TimsLine::action()

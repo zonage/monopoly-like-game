@@ -10,7 +10,7 @@ public:
 	std::string mBlockName;
 	int rent;*/
 
-	Gym(int number=0, std::string title="", int cost=0, std::string mBlockName="", int rent=0,
+	Gym(std::string title="", int cost=0, std::string mBlockName="", int rent=0, int number=0, 
 		bool purchased=0, bool mortgaged=0, Player *owner=NULL, Player *occupying=NULL);
 
 	~Gym();

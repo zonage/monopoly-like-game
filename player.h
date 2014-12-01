@@ -19,12 +19,16 @@ class Player {
 	mBlock * monopolies[];
 	Property * pAssets[];
 
+	TheBoard *TB;
+
 	virtual void turn()=0;
 	void addMoney(int);
-	void mortgage();
+	void mortgage(std::string);
 	void bankrupt();
 	void roll();
 	void trade();
+
+	int deedChecker(std::string);
 
 	Player(std::string name = "fred", std::string charPiece = "D", Square * position=NULL,
 		int loc=0, int money=1500, int RimCups=0, int TimTurns=3);

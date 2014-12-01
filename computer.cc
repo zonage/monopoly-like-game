@@ -13,7 +13,7 @@ Computer::~Computer() {}
 
 void Computer::turn() {
 
-	if (TimTurns<3) && (RimCups>0) {
+	if ((TimTurns<3) && (RimCups>0)) {
 		cout << name << "used a RimCup!" << endl;
 		--RimCups;
 		TimTurns = 3;
@@ -25,17 +25,19 @@ void Computer::turn() {
 				money -= 50;
 				TimTurns = 3;
 				cout << name << "has left the Tims Line" << endl;
-				break;
+				return;
 			}	
 			else if (TimTurns != 3)
 			{
 				++TimTurns;
 				cout << "End of turn." << endl;
-				break;
+				return;
 			}
 			else
 			{
-				break;
+				return;
 			}
+	} else {
+	roll();
 	}
 }

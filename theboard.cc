@@ -1,4 +1,4 @@
-#include "thedisplay.h"
+#include "theboard.h"
 #include <iostream>
 #include <string>
 
@@ -17,7 +17,7 @@ TheBoard::~TheBoard(){
 
 
 // makes the display
-void Thedisplay::displaymaker()
+void TheBoard::displaymaker()
 {	
 	// makes everything on the grid a space
 	for(int i = 0; i < 56; i++)
