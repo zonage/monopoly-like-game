@@ -100,58 +100,11 @@ int main(int argc, char *argv[])
 	TheB->squareArr[38] = new CoopFee();
 	TheB->squareArr[39] = new AcademicBuilding("DC", 400, "Math", 50, 200);
 
-<<<<<<< Updated upstream
-	TB->squareArr[0] = new collectOSAP();
-	TB->squareArr[1] = new AcademicBuilding("AL", 40, "Arts1", 2, 50);
-	TB->squareArr[2] = new SLC();
-	TB->squareArr[3] = new AcademicBuilding("ML", 60, "Arts1", 4, 50);
-	TB->squareArr[4] = new Tuition();
-	TB->squareArr[5] = new Res("MKV", 200, "Residences", 25);
-	TB->squareArr[6] = new AcademicBuilding("ECH", 100, "Arts2", 6, 50);
-	TB->squareArr[7] = new NeedlesHall();
-	TB->squareArr[8] = new AcademicBuilding("PAS", 100, "Arts2", 6, 50);
-	TB->squareArr[9] = new AcademicBuilding("HH", 120, "Arts2", 8, 50);
-	TB->squareArr[10] = new TimsLine();
-	TB->squareArr[11] = new AcademicBuilding("RCH", 140, "Eng", 10, 100);
-	TB->squareArr[12] = new Gym("PAC", 150, "Gyms");
-	TB->squareArr[13] = new AcademicBuilding("DWE", 140, "Eng", 10, 100);
-	TB->squareArr[14] = new AcademicBuilding("CPH", 160, "Eng", 12, 100);
-	TB->squareArr[15] = new Res("UWP", 200, "Residences", 25);
-	TB->squareArr[16] = new AcademicBuilding("LHI", 180, "Health", 14, 100);
-	TB->squareArr[17] = new SLC();
-	TB->squareArr[18] = new AcademicBuilding("BMH", 180, "Health", 14, 100);
-	TB->squareArr[19] = new AcademicBuilding("OPT", 200, "Health", 16, 100);
-	TB->squareArr[20] = new GooseNesting();
-	TB->squareArr[21] = new AcademicBuilding("EV1", 220, "Env", 18, 150);
-	TB->squareArr[22] = new NeedlesHall();
-	TB->squareArr[23] = new AcademicBuilding("EV2", 220, "Env", 18, 150);
-	TB->squareArr[24] = new AcademicBuilding("EV3", 240, "Env", 20, 150);
-	TB->squareArr[25] = new Res("V1", 200, "Residences", 25);
-	TB->squareArr[26] = new AcademicBuilding("PHYS", 260, "Sci1", 22, 150);
-	TB->squareArr[27] = new AcademicBuilding("B1", 260, "Sci1", 22, 150);
-	TB->squareArr[28] = new Gym("CIF", 150, "Gyms");
-	TB->squareArr[29] = new AcademicBuilding("B2", 280, "Sci1", 24, 150);
-	TB->squareArr[30] = new GoToTims();
-	TB->squareArr[31] = new AcademicBuilding("EIT", 300, "Sci2", 26, 200);
-	TB->squareArr[32] = new AcademicBuilding("ESC", 300, "Sci2", 26, 200);
-	TB->squareArr[33] = new SLC();
-	TB->squareArr[34] = new AcademicBuilding("C2", 320, "Sci2", 28, 200);
-	TB->squareArr[35] = new Res("REV", 200, "Residences", 25);
-	TB->squareArr[36] = new NeedlesHall();
-	TB->squareArr[37] = new AcademicBuilding("MC", 350, "Math", 35, 200);
-	TB->squareArr[38] = new CoopFee();
-	TB->squareArr[39] = new AcademicBuilding("DC", 400, "Math", 50, 200);
-	
+
 	// checks for command line arguments 
 	if((argc - 1 == 2) && (argv[1] == "-load"))
-=======
-cout << TheB->squareArr[0]->title << endl;
-	cout << "How many players? (2-6)" << endl;
-	cin >> numplayers;
+  (numplayers>6))
 
-	// only makes players if there is at least 2
-	while ((numplayers<2) || (numplayers>6))
->>>>>>> Stashed changes
 	{
 		string s;
 		string player;
@@ -221,7 +174,6 @@ cout << TheB->squareArr[0]->title << endl;
 						owned = NULL;
 					}
 				}
-<<<<<<< Updated upstream
 				TB->squareArr[i]->owner = owned;
 				AcademicBuilding * ab = dynamic_cast<AcademicBuilding*>(TB->squareArr[i])
 				ab->improvements = improv;
@@ -258,12 +210,10 @@ cout << TheB->squareArr[0]->title << endl;
 			if (numplayers<2) {
 				cout << "Error, not enough players. Please enter the number of players." << endl;
 				cin >> numplayers;
-=======
 				players[i] = new Computer(compNames[compPlayers], pieces[j],
 						TheB->squareArr[0]);
 				players[i]->TB = TheB;
 				++compPlayers;
->>>>>>> Stashed changes
 			} else {
 				cout << "Error, too many players. Please select a number of players from 2-6." << endl;
 				cin >> numplayers;
@@ -308,12 +258,9 @@ cout << TheB->squareArr[0]->title << endl;
 					}
 					players[i] = new Human(name, piece, TB->squareArr[0]);
 				}
-<<<<<<< Updated upstream
-=======
 				players[i] = new Human(name, piece, TheB->squareArr[0]);
 		  		players[i]->TB = TheB;
 				}
->>>>>>> Stashed changes
 
 			}
 		}
