@@ -103,18 +103,16 @@ int main(int argc, char *argv[])
 
 	// checks for command line arguments 
 	if((argc - 1 == 2) && (argv[1] == "-load"))
-  (numplayers>6))
-
 	{
 		string s;
 		string player;
 		int usepiece = 0;
 		int money;
 		int location;
-		int DC?;
+		int DC;
 		int turns;
 
-		ifstream save(argv[2]);z
+		ifstream save(argv[2]);
 		getline(save, s);
 		istringstream a(s);
 		a >> numplayers;
@@ -130,29 +128,29 @@ int main(int argc, char *argv[])
 			b >> location;
 			if (location == 10)
 			{
-				b >> DC?;
-				if (DC? == 1)
+				b >> DC;
+				if (DC == 1)
 				{
 					b >> turns;
-					players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money, 0, turns);
-					player[i]->position->occupying = player[i];
+					players[i] = new Human(player, pieces[usepiece], TheB->squareArr[location], location, money, 0, turns);
+					players[i]->position->occupying = players[i];
 				}
 				else
 				{
-					players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money,);
-					player[i]->position->occupying = player[i];
+					players[i] = new Human(player, pieces[usepiece], TheB->squareArr[location], location, money);
+					players[i]->position->occupying = players[i];
 				}
 			}
 			else
 			{
-				players[i] = new Human(player, pieces[usepiece], TB->squareArr[location], location, money,);
-				player[i]->position->occupying = player[i];	
+				players[i] = new Human(player, pieces[usepiece], TheB->squareArr[location], location, money);
+				players[i]->position->occupying = players[i];	
 			}
 		}
 
 		string owner;
 		int improv;
-		Square * owned = NULL;
+		Player * owned = NULL;
 		for(int i = 0; i < 40; i ++)
 		{
 			if ((i == 1) || (i == 3) || (i == 6) || (i == 8) || (i == 9) || (i == 11) || (i == 13) || (i == 16) || 
@@ -174,8 +172,8 @@ int main(int argc, char *argv[])
 						owned = NULL;
 					}
 				}
-				TB->squareArr[i]->owner = owned;
-				AcademicBuilding * ab = dynamic_cast<AcademicBuilding*>(TB->squareArr[i])
+				TheB->squareArr[i]->owner = owned;
+				AcademicBuilding * ab = dynamic_cast<AcademicBuilding*>(TheB->squareArr[i]);
 				ab->improvements = improv;
 			}
 			if ((i == 5) || (i == 12) || (i == 15) || (i == 25) || (i ==28) || (i == 35))
@@ -195,9 +193,10 @@ int main(int argc, char *argv[])
 						owned = NULL;
 					}
 				}
-				TB->squareArr[i]->owner = owned;
+				TheB->squareArr[i]->owner = owned;
 			}
 		}
+	}
 	else
 	{		
 		cout << "How many players? (2-6)" << endl;
@@ -210,10 +209,6 @@ int main(int argc, char *argv[])
 			if (numplayers<2) {
 				cout << "Error, not enough players. Please enter the number of players." << endl;
 				cin >> numplayers;
-				players[i] = new Computer(compNames[compPlayers], pieces[j],
-						TheB->squareArr[0]);
-				players[i]->TB = TheB;
-				++compPlayers;
 			} else {
 				cout << "Error, too many players. Please select a number of players from 2-6." << endl;
 				cin >> numplayers;
@@ -242,7 +237,7 @@ int main(int argc, char *argv[])
 						++j;
 					}
 					players[i] = new Computer(compNames[compPlayers], pieces[j],
-							TB->squareArr[0]);
+							TheB->squareArr[0]);
 					++compPlayers;
 				} else {
 					string piece;
@@ -256,12 +251,9 @@ int main(int argc, char *argv[])
 						cin >> piece;
 	// do we need to check for char vs string input
 					}
-					players[i] = new Human(name, piece, TB->squareArr[0]);
+					players[i] = new Human(name, piece, TheB->squareArr[0]);
+					players[i]->TB = TheB;
 				}
-				players[i] = new Human(name, piece, TheB->squareArr[0]);
-		  		players[i]->TB = TheB;
-				}
-
 			}
 		}
 	}
